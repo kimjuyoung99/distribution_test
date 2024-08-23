@@ -1,4 +1,14 @@
+let db;
+
 class Post {
+    static async injectDB(conn){
+        try {
+            db = conn.db("todo");
+            console.log("DB연결 성공");
+        }catch (e){
+            console.log(`DB연결 실패 : ${e}`);
+        }
+    }
     static async getAll(){
         return await db
         .collection("posts")

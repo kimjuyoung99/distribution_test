@@ -11,7 +11,9 @@ async function connectDB() {
 	try {
 	  await client.connect();
 	  console.log("MongoDB Atlas에 성공적으로 연결되었습니다");
-	  db = client.db("todo");
+	//   db = client.db("todo");
+    console.log("DB연결 성공");
+    return client;
 	} catch (err) {
 	  console.error("MongoDB Atlas 연결 실패", err);
 	  console.error("오류 세부 정보:", JSON.stringify(err, null, 2));

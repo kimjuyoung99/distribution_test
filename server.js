@@ -1,12 +1,20 @@
-require("dotenv").config();
-const express = require("express");
-const path = require("path");
-const app = express();
-const { MongoClient, ObjectId } = require("mongodb");
+import dotenv from 'dotenv';
+import express from 'express';
+import path from 'path';
+import { MongoClient, ObjectId } from 'mongodb';
+import { fileURLToPath } from 'url';
+
+
+dotenv.config();
+const app = express();  // Express 애플리케이션 인스턴스 생성
+
 
 const MONGO_PASS = process.env.MONGO_PASS;
 const uri = `mongodb+srv://jjassb404:RE8GBqGxJASIZq1y@cluster0.e5wcm.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;
 const client = new MongoClient(uri);
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 app.use(express.static(path.join(__dirname, "public")));
 app.set("view engine", "ejs");
