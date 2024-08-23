@@ -1,15 +1,16 @@
 import express from 'express';
 import path from 'path';
 
-import postRoutes from './postrRoutes.js';
-import connectDB from '../config/database.js';
-import Post from '../models/post.js';
+import postRoutes from './routs/postrRoutes.js';
+import connectDB from './config/database.js';
+import Post from './models/post.js';
 import { fileURLToPath } from 'url';
 
 const app = express();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+app.set("views", path.join(__dirname, "views"));
 app.use(express.static(path.join(__dirname, "public")));
 app.set("view engine", "ejs");
 app.use(express.json());
