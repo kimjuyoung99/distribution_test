@@ -35,7 +35,6 @@
 			return;
 		}
 
-		// 상수변수의 선언 위치가 중요
 		const postId = e.target.dataset.postnum;
 
 		if (e.target.classList.contains("deleteBtn")) {
@@ -46,10 +45,8 @@
 				const data = await res.json();
 				console.log(data);
 				if (data.success) {
-					// 페이지 새로고침 대신 해당 항목만 제거
 					listItem.remove();
 					if (listCon.children.length === 0) {
-						// 삭제 후 리스트가 없을 때
 						listCon.innerHTML = "<li>리스트가 없어요</li>";
 					}
 				} else {

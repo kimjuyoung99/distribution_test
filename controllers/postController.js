@@ -2,12 +2,14 @@ import Post from "../models/post.js";
 import { ObjectId } from "mongodb";
 
 export const listPosts = async (req, res) => {
-	try {
-		const posts = Post.getAll();
-		res.render("list", { posts });
-	} catch (err) {
-		res.status(500).send("서버 오류가 발생했습니다.");
-	}
+    try {
+        const posts = await Post.getAll();
+        console.log('Posts:', posts); // 디버깅을 위한 로그
+        res.render("list", { posts });
+    } catch (err) {
+        console.error('Error fetching posts:', err);
+        res.status(500).send("서버 오류가 발생했습니다.");
+    }
 };
 
 // Post.create()
