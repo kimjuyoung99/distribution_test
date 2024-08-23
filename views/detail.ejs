@@ -31,13 +31,11 @@
 
 	deleteBtn.addEventListener("click", async (e) => {
 		const postId = e.target.dataset.postnum;
-
 		try {
 			const res = await fetch(`/delete/${postId}`, {
 				method: "DELETE",
 			});
 			const data = await res.json();
-			console.log(data.success);
 			if (data.success) {
 				location.href = "/list";
 			} else {

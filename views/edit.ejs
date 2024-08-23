@@ -68,9 +68,7 @@
 			});
 
 			const data = await res.json();
-
 			if (data.success) {
-				// 서버에서 전달한 리다이렉트 URL로 이동
 				window.location.href = data.redirectUrl;
 			} else {
 				alertArea.innerText = data.message || "수정 실패";
