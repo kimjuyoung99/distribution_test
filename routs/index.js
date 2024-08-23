@@ -27,7 +27,7 @@ async function start(){
     await Post.injectDB(client);
 
     app.listen(port, () => {
-        console.log("서버 실행중...");
+        console.log("서버 실행중....");
     });
     process.on("SIGINT", async () => {
         try {
