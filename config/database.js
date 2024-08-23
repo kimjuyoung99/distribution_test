@@ -4,7 +4,7 @@ import dotenv from "dotenv";
 dotenv.config();
 
 const MONGO_PASS = process.env.MONGO_PASS;
-const uri = `mongodb+srv://jjassb404:RE8GBqGxJASIZq1y@cluster0.e5wcm.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;
+const uri = `mongodb+srv://jjassb404:${MONGO_PASS}@cluster0.e5wcm.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;
 const client = new MongoClient(uri);
 
 async function connectDB() {
